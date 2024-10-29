@@ -1,0 +1,62 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><base href = "https://app.schoology.com/"></head><body><div class="m-auto text-base py-[18px] px-3 md:px-4 w-full md:px-5 lg:px-4 xl:px-5" dir="ltr">
+<div class="mx-auto flex flex-1 gap-4 text-base md:gap-5 lg:gap-6 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem]">
+<div class="group/conversation-turn relative flex w-full min-w-0 flex-col">
+<div class="flex-col gap-1 md:gap-3">
+<div class="flex max-w-full flex-col flex-grow">
+<div class="min-h-8 text-message flex w-full flex-col items-end gap-2 whitespace-normal break-words [.text-message+&amp;]:mt-5" dir="auto" data-message-author-role="user" data-message-id="aaa2c0fa-10a7-470e-9327-54a51e6afc3a">
+<div class="flex w-full flex-col gap-1 empty:hidden items-end rtl:items-start">
+<div class="relative max-w-[70%] rounded-3xl px-5 py-2.5 bg-[#f4f4f4] dark:bg-token-main-surface-secondary">
+<div class="whitespace-pre-wrap" dir="ltr">I said:</div>
+<div class="whitespace-pre-wrap">make any code</div>
+<div class="absolute bottom-0 right-full top-0 -mr-3.5 hidden pr-5 pt-1 [.group\/conversation-turn:hover_&amp;]:block">&nbsp;</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h6 class="sr-only">ChatGPT said:</h6>
+<div class="m-auto text-base py-[18px] px-3 md:px-4 w-full md:px-5 lg:px-4 xl:px-5">
+<div class="mx-auto flex flex-1 gap-4 text-base md:gap-5 lg:gap-6 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem]">
+<div class="flex-shrink-0 flex flex-col relative items-end">
+<div class="pt-0">
+<div class="gizmo-bot-avatar flex h-8 w-8 items-center justify-center overflow-hidden rounded-full">
+<div class="relative p-1 rounded-sm flex items-center justify-center bg-token-main-surface-primary text-token-text-primary h-8 w-8">ChatGPT</div>
+</div>
+</div>
+</div>
+<div class="group/conversation-turn relative flex w-full min-w-0 flex-col agent-turn">
+<div class="flex-col gap-1 md:gap-3">
+<div class="flex max-w-full flex-col flex-grow">
+<div class="min-h-8 text-message flex w-full flex-col items-end gap-2 whitespace-normal break-words [.text-message+&amp;]:mt-5" dir="auto" data-message-author-role="assistant" data-message-id="3ae68d96-1be0-48c1-ab81-f2e2afb94d22" data-message-model-slug="gpt-4o">
+<div class="flex w-full flex-col gap-1 empty:hidden first:pt-[3px]">
+<div class="markdown prose w-full break-words dark:prose-invert light">
+<p>Here's a simple Python program for a&nbsp;<strong>To-Do List</strong>&nbsp;app. It allows you to add, view, and remove tasks, and it's a good starting point if you're interested in project-based learning!</p>
+<h3>Simple To-Do List App</h3>
+<div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary dark:bg-gray-950">
+<div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary">python</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-sidebar-surface-primary px-2 font-sans text-xs text-token-text-secondary dark:bg-token-main-surface-secondary"><span data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-python"><span class="hljs-comment"># Simple To-Do List Program</span> <span class="hljs-comment"># List to store tasks</span> tasks = [] <span class="hljs-keyword">def</span> <span class="hljs-title function_">add_task</span>(<span class="hljs-params">task</span>): tasks.append(task) <span class="hljs-built_in">print</span>(<span class="hljs-string">f"Task '<span class="hljs-subst">{task}</span>' added!"</span>) <span class="hljs-keyword">def</span> <span class="hljs-title function_">view_tasks</span>(): <span class="hljs-keyword">if</span> tasks: <span class="hljs-built_in">print</span>(<span class="hljs-string">"\nYour Tasks:"</span>) <span class="hljs-keyword">for</span> index, task <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(tasks, start=<span class="hljs-number">1</span>): <span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{index}</span>. <span class="hljs-subst">{task}</span>"</span>) <span class="hljs-keyword">else</span>: <span class="hljs-built_in">print</span>(<span class="hljs-string">"\nNo tasks to show!"</span>) <span class="hljs-keyword">def</span> <span class="hljs-title function_">remove_task</span>(<span class="hljs-params">task_number</span>): <span class="hljs-keyword">if</span> <span class="hljs-number">0</span> &lt; task_number &lt;= <span class="hljs-built_in">len</span>(tasks): removed_task = tasks.pop(task_number - <span class="hljs-number">1</span>) <span class="hljs-built_in">print</span>(<span class="hljs-string">f"Task '<span class="hljs-subst">{removed_task}</span>' removed!"</span>) <span class="hljs-keyword">else</span>: <span class="hljs-built_in">print</span>(<span class="hljs-string">"Invalid task number."</span>) <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>: <span class="hljs-built_in">print</span>(<span class="hljs-string">"\n--- To-Do List ---"</span>) <span class="hljs-built_in">print</span>(<span class="hljs-string">"1. Add Task"</span>) <span class="hljs-built_in">print</span>(<span class="hljs-string">"2. View Tasks"</span>) <span class="hljs-built_in">print</span>(<span class="hljs-string">"3. Remove Task"</span>) <span class="hljs-built_in">print</span>(<span class="hljs-string">"4. Exit"</span>) choice = <span class="hljs-built_in">input</span>(<span class="hljs-string">"Choose an option: "</span>) <span class="hljs-keyword">if</span> choice == <span class="hljs-string">'1'</span>: task = <span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter a new task: "</span>) add_task(task) <span class="hljs-keyword">elif</span> choice == <span class="hljs-string">'2'</span>: view_tasks() <span class="hljs-keyword">elif</span> choice == <span class="hljs-string">'3'</span>: view_tasks() <span class="hljs-keyword">try</span>: task_number = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter task number to remove: "</span>)) remove_task(task_number) <span class="hljs-keyword">except</span> ValueError: <span class="hljs-built_in">print</span>(<span class="hljs-string">"Please enter a valid number."</span>) <span class="hljs-keyword">elif</span> choice == <span class="hljs-string">'4'</span>: <span class="hljs-built_in">print</span>(<span class="hljs-string">"Goodbye!"</span>) <span class="hljs-keyword">break</span> <span class="hljs-keyword">else</span>: <span class="hljs-built_in">print</span>(<span class="hljs-string">"Invalid choice. Please try again."</span>) </code></div>
+</div>
+<h3>How It Works:</h3>
+<ul>
+<li><strong>Add Task</strong>: Adds a new task to the list.</li>
+<li><strong>View Tasks</strong>: Displays the list of tasks with numbering.</li>
+<li><strong>Remove Task</strong>: Allows you to enter a task number to remove it.</li>
+<li><strong>Exit</strong>: Ends the program.</li>
+</ul>
+<p>Feel free to customize it or add more features, like saving tasks to a file!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></body></html>
