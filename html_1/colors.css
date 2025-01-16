@@ -2,8 +2,9 @@
 
 h1 {
     color: #17504a;
-    margin: 0px 0px 0px 400px;
-    font-family: 'test';
+    margin: 0px 0px 0px 360px;
+    font-family: 'NeutraText-Bold';
+    
 }
 
 fieldset {
@@ -13,13 +14,27 @@ fieldset {
 h3 {
     text-align: center;
     margin: 0px 310px 0px 330px;
-    font-family: ;
+    font-family: 'NeutraText-Bold';
+
 }
 
 @font-face {
-    font-family: 'test';
-    src: url(fonts/test.otf2') format('.otf2')
-         url(fonts/test.otf') format('.otf')
-    font-weight: normal;
+    font-family: 'NeutraText-Bold';
     font-style: normal;
-}
+    font-weight: normal;
+    src: local('NeutraText-Bold'), url('neutra-text-bold-5871e1605afa2.woff') format('woff');
+    }
+
+@font-face {
+    font-family: 'NeutraTextTF-Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NeutraTextTF-Book'), url('neutra-text-tf-5871e0b0704ed.woff') format('woff');
+    }
+
+@font-face {
+    font-family: 'NeutraText-BookAlt';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NeutraText-BookAlt'), url('neutra-text-alt-587261020eccb.woff') format('woff');
+    }
