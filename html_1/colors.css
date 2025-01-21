@@ -13,10 +13,27 @@ fieldset {
 
 h3 {
     text-align: center;
-    margin: 0px 310px 0px 330px;
+    margin: 10px 310px 0px 330px;
     font-family: 'NeutraText-Bold';
 
 }
+
+h5 {
+    font-family: 'NeutraText-Bold';
+    margin: 30px 600px 0px 50px;
+}
+
+fieldset {
+    font-family: 'NeutraText-Bold';
+    color: #17504a;
+}
+
+input {
+    font-family: 'NeutraText-Bold';
+    color: #17504a;
+}
+
+/* Font Styles */
 
 @font-face {
     font-family: 'NeutraText-Bold';
@@ -38,3 +55,55 @@ h3 {
     font-weight: normal;
     src: local('NeutraText-BookAlt'), url('neutra-text-alt-587261020eccb.woff') format('woff');
     }
+    
+
+ /* Header and Navigation Styles */
+ header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: #17504a;
+}
+nav {
+    position: relative;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #17504a;
+    padding: 10px 15px;
+    display: block;
+    font-family: 'NeutraText-Bold';
+}
+nav ul li a:hover {
+    background-color: #555;
+}
+/* Dropdown Menu Styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: #17504a;
+}
+.dropdown a:hover {
+    background-color: white;
+}
+.dropdown-btn:hover .dropdown {
+    display: block;
+}
