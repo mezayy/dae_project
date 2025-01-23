@@ -2,8 +2,9 @@
 
 h1 {
     color: #17504a;
-    margin: 0px 0px 0px 400px;
-    font-family: 'test';
+    margin: 0px 0px 0px 330px;
+    font-family: 'NeutraText-Bold';
+    
 }
 
 fieldset {
@@ -12,14 +13,147 @@ fieldset {
 
 h3 {
     text-align: center;
-    margin: 0px 310px 0px 330px;
-    font-family: ;
+    margin: 10px 310px 0px 330px;
+    font-family: 'NeutraText-Bold';
+
 }
 
+h5 {
+    font-family: 'NeutraText-Bold';
+    margin: 30px 600px 0px 50px;
+}
+
+fieldset {
+    font-family: 'NeutraText-Bold';
+    color: #17504a;
+}
+
+input {
+    font-family: 'NeutraText-Bold';
+    color: #17504a;
+    padding: 0%;
+}
+
+
+/* Font Styles */
+
 @font-face {
-    font-family: 'test';
-    src: url(fonts/test.otf2') format('.otf2')
-         url(fonts/test.otf') format('.otf')
-    font-weight: normal;
+    font-family: 'NeutraText-Bold';
     font-style: normal;
+    font-weight: normal;
+    src: local('NeutraText-Bold'), url('neutra-text-bold-5871e1605afa2.woff') format('woff');
+    }
+
+@font-face {
+    font-family: 'NeutraTextTF-Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NeutraTextTF-Book'), url('neutra-text-tf-5871e0b0704ed.woff') format('woff');
+    }
+
+@font-face {
+    font-family: 'NeutraText-BookAlt';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NeutraText-BookAlt'), url('neutra-text-alt-587261020eccb.woff') format('woff');
+    }
+    
+
+ /* Header and Navigation Styles */
+ header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: #17504a;
+}
+nav {
+    position: relative;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #17504a;
+    padding: 10px 15px;
+    display: block;
+    font-family: 'NeutraText-Bold';
+}
+nav ul li a:hover {
+    background-color: #555;
+}
+/* Dropdown Menu Styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: #17504a;
+}
+.dropdown a:hover {
+    background-color: white;
+}
+.dropdown-btn:hover .dropdown {
+    display: block;
+}
+
+/* Carousel container */
+.carousel {
+    position: relative;
+    width: 50%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Images container */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual image */
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Navigation buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
+/* Hide buttons on small screens for a cleaner view */
+@media (max-width: 600px) {
+    .carousel-button {
+        display: none;
+    }
 }

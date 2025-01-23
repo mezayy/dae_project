@@ -2,7 +2,7 @@
 
 h1 {
     color: #17504a;
-    margin: 0px 0px 0px 360px;
+    margin: 0px 0px 0px 330px;
     font-family: 'NeutraText-Bold';
     
 }
@@ -31,7 +31,9 @@ fieldset {
 input {
     font-family: 'NeutraText-Bold';
     color: #17504a;
+    padding: 0%;
 }
+
 
 /* Font Styles */
 
@@ -106,4 +108,52 @@ nav ul li a:hover {
 }
 .dropdown-btn:hover .dropdown {
     display: block;
+}
+
+/* Carousel container */
+.carousel {
+    position: relative;
+    width: 50%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Images container */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual image */
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Navigation buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
+/* Hide buttons on small screens for a cleaner view */
+@media (max-width: 600px) {
+    .carousel-button {
+        display: none;
+    }
 }
