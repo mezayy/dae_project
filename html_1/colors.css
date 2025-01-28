@@ -2,9 +2,18 @@
 
 h1 {
     color: #17504a;
-    margin: 0px 0px 0px 330px;
-    font-family: 'NeutraText-Bold';
-    
+    text-align: center;
+    font-family: 'NeutraText-Bold'; 
+    justify-self: center;  
+    flex-grow: 1;
+}
+
+p {
+    color: white; 
+}
+
+li{
+    flex: 1;
 }
 
 fieldset {
