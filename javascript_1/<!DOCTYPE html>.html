@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elm City Compass Donations</title>
+    <link rel="stylesheet" href="colors.css">
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div><p>ACCOUNT</p> </div>
+        <h1>ELM CITY COMPASS DONATIONS</h1>
+        <nav>
+            <ul>
+                <!-- Dropdown Menu -->
+                <li class="dropdown-btn">
+                    <a href="javascript:void(0)">Account</a>
+                    <div class="dropdown">
+                        <a href="signin.html">Sign In</a>
+                        <a href="login.html">Log In</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Carousel Section -->
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="../images/newhavengreenmichaelmarsland.jpg" alt="Creator: Michael Marsland, Copyright: Yale Owns Rights">
+            <img src="../images/green.jpg" alt="Image 2">
+            <img src="../images/monkeybutt.jpg" alt="Image 3">
+        </div>
+        <button class="carousel-button left" onclick="scrollCarousel(-1)">&#9664;</button>
+        <button class="carousel-button right" onclick="scrollCarousel(1)">&#9654;</button>
+    </div>
+
+    <script>
+        // JavaScript for Carousel Functionality
+        const imagesContainer = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        const imageWidth = images[0].clientWidth; // Assuming all images are of equal width
+        let currentIndex = 0;
+
+        function scrollCarousel(direction) {
+            // Update index based on direction (-1 for left, 1 for right)
+            currentIndex += direction;
+
+            // Wrap around if index exceeds limits
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            } else if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+
+            // Update the transform property for smooth scrolling
+            imagesContainer.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+        }
+
+        // Adjust carousel on window resize
+        window.addEventListener('resize', () => {
+            imagesContainer.style.transform = `translateX(-${currentIndex * images[0].clientWidth}px)`;
+        });
+    </script>
+
+    <!-- Main Section -->
+    <main>
+        <section id="about">
+            <h3> 
+                <a href="https://www.elmcitycompass.org">Elm City Compass</a> 
+                (Compassionate Allies Serving our Streets) is a community initiative in New Haven focused on establishing sustainable support systems for individuals facing mental health or substance use crises.
+            </h3>
+        </section>
+
+        <section id="donate">
+            <h5>Welcome to my capstone project website! Here, you can contribute by donating money or items to support Elm City Compass, a vital crisis program dedicated to helping those in need. Your donations directly provide essential resources for clients, ensuring they receive the care and support they deserve.</h5>
+            <img src="" alt="Donation Image">
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Isaiah Sosa Capstone</p>
+    </footer>
+</body>
+</html>
