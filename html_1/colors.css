@@ -1,13 +1,14 @@
 /*CSS START WOOHOO FUN*/
 
 h1 {
-    color: #17504a;
+    flex-grow: 1; /* Allows it to take up available space */
     text-align: center;
-    font-family: 'NeutraText-Bold'; 
-    justify-self: center;  
-    flex-grow: 1;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; /* Prevents text from breaking */
 }
-
 p {
     color: white; 
 }
@@ -71,14 +72,15 @@ input {
  /* Header and Navigation Styles */
  header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Keeps items spread apart */
     align-items: center;
     padding: 10px 20px;
     background-color: white;
     color: #17504a;
+    position: relative;
 }
 nav {
-    position: relative;
+    margin-left: auto; /* Pushes the nav to the right */
 }
 nav ul {
     list-style-type: none;
@@ -166,3 +168,6 @@ nav ul li a:hover {
         display: none;
     }
 }
+
+/*SIGN IN PAGE CSS*/
+
