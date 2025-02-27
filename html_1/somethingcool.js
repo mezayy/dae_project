@@ -37,3 +37,5 @@ function scrollCarousel(direction) {
 window.addEventListener('resize', () => {
     imagesContainer.style.transform = `translateX(-${imageIndex * images[0].clientWidth}px)`;
 });
+
+//I Accessing an element in the DOM
