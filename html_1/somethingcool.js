@@ -38,4 +38,64 @@ window.addEventListener('resize', () => {
     imagesContainer.style.transform = `translateX(-${imageIndex * images[0].clientWidth}px)`;
 });
 
-//I Accessing an element in the DOM
+// Accessing form in the DOM
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("donationForm");
+    const donationMessage = document.getElementById("donationMessage");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent actual form submission
+
+        // Get form values
+        const donorName = document.getElementById("donorName").value.trim();
+        const donationAmount = document.getElementById("donationAmount").value;
+        const paymentMethod = document.getElementById("paymentMethod").value;
+
+        // Validate inputs
+        if (donorName === "" || donationAmount < 1 || paymentMethod === "") {
+            donationMessage.style.color = "red";
+            donationMessage.textContent = "Please fill out all fields correctly.";
+            return;
+        }
+
+        // Simulate donation success
+        donationMessage.style.color = "green";
+        donationMessage.textContent = `Thank you, ${donorName}, for your generous donation of $${donationAmount} using ${paymentMethod.replace("-", " ")}!`;
+
+        // Optionally, clear the form after submission
+        form.reset();
+    });
+});
+
+// Flask connector
+document.getElementById("donationForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevent page reload
+
+    // Get form values
+    const name = document.getElementById("name").value;
+    const amount = parseFloat(document.getElementById("amount").value);
+    const payment_method = document.getElementById("payment_method").value;
+
+    // Prepare data to send
+    const donationData = {
+        name: name,
+        amount: amount,
+        payment_method: payment_method
+    };
+
+    // Send data to Flask backend
+    try {
+        const response = await fetch("http://127.0.0.1:5000/donate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(donationData)
+        });
+
+        const result = await response.json();
+        alert(result.message); // Show success message
+    } catch (error) {
+        console.error("Error:", error);
+    }
+});
