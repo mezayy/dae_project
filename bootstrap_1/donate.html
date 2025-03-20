@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <link rel="stylesheet" href="colors.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div><p>ACCOUNT</p> </div>
+        <h1>ELM CITY COMPASS DONATIONS</h1>
+        <nav>
+            <ul>
+                <!-- Dropdown Menu -->
+                <li class="dropdown-btn">
+                    <a href="javascript:void(0)">Account</a>
+                    <div class="dropdown">
+                        <a href="homepage.html">Home</a>
+                        <a href="signin.html">Sign In</a>
+                        <a href="login.html">Log In</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form id="donationForm">
+            <fieldset>
+                <legend>Donation Information</legend>
+
+                <!-- Name Input -->
+                <label for="donorName">Full Name:</label>
+                <input type="text" id="donorName" name="donorName" required><br><br>
+
+                <!-- Donation Amount Input -->
+                <label for="donationAmount">Donation Amount ($):</label>
+                <input type="number" id="donationAmount" name="donationAmount" min="1" required><br><br>
+
+                <!-- Payment Method Dropdown -->
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="zelle">Zelle</option>
+                    <option value="cash-app">Cash App</option>
+                </select><br><br>
+
+                <!-- Submit Button -->
+                <button type="submit">Donate Now</button>
+            </fieldset>
+        </form>
+
+        <p id="donationMessage"></p>
+    </main>
+
+    <footer>
+        <p>Isaiah Sosa Capstone</p>
+    </footer>
+    <script src="somethingcool.js" defer></script>
+</body>
+</html>
