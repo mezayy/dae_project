@@ -11,36 +11,40 @@
         <h1>SIGN IN TO DONATIONS</h1>
         <nav>
             <ul>
-                <!-- Dropdown Menu -->
                 <li class="dropdown-btn">
                     <a href="javascript:void(0)">Account</a>
                     <div class="dropdown">
-                        <a href="homepage.html">Home</a>
-                        <a href="login.html">Log In</a>
-                        <a href="#contact">Contact</a>
-                        <a href="donate.html">Donate</a>
+                        <a href="login.html" id="login-link">Log In</a>
+                        <a href="signin.html" id="signin-link">Sign Up</a>
                     </div>
                 </li>
+                
             </ul>
-        
+        </nav>
     </header>
+
     <main>
-        <form action="/action_page.php">
+        <form id="signin-form">
             <fieldset>
-                <legend>Personal Information:</legend>
-                <label for="fname">First name:</label>
-                <input type="text" id="fname" name="fname" required><br><br>
-                <label for="lname">Last name:</label>
-                <input type="text" id="lname" name="lname" required><br><br>
+                <legend>Sign In:</legend>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <input type="submit" value="Submit">
+                <input type="email" id="email" required><br><br>
+              
+                <label for="password">Password:</label>
+                <input type="password" id="password" required><br><br>
+              
+                <button type="submit">Sign Up</button>
+                <p id="signin-message"></p>
             </fieldset>
         </form>
+
+        <p id="signin-message" style="color: red;"></p> <!-- Error/Success Message -->
     </main>
+
     <footer>
         <p>Isaiah Sosa Capstone</p>
     </footer>
+
     <script src="somethingcool.js" defer></script>
 </body>
 </html>
