@@ -1,6 +1,6 @@
-// Import Firebase Authentication
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore"; 
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -15,85 +15,76 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // Initialize Firebase Authentication
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// ✅ SIGN UP FUNCTION
-const signupForm = document.getElementById("signup-form");
-if (signupForm) {
-  signupForm.addEventListener("submit", function (event) {
+// 🚀 Check Authentication State (Make Sure User is Logged In)
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log("User is logged in:", user.email);
+        document.getElementById("logout-btn").style.display = "block";
+        document.getElementById("login-link").style.display = "none";
+        document.getElementById("signup-link").style.display = "none";
+    } else {
+        console.log("No user logged in");
+        document.getElementById("logout-btn").style.display = "none";
+        document.getElementById("login-link").style.display = "block";
+        document.getElementById("signup-link").style.display = "block";
+    }
+});
+
+// 🔹 Sign-Up Function
+document.getElementById("signup-form")?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
-    const signupMessage = document.getElementById("signup-message");
 
-    if (email === "" || password === "") {
-      signupMessage.textContent = "Please fill in all fields.";
-      return;
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        console.log("User signed up:", user);
+
+        // Store user info in Firestore
+        await setDoc(doc(db, "users", user.uid), {
+            email: user.email,
+            createdAt: new Date()
+        });
+
+        alert("Sign-up successful! You are now logged in.");
+        window.location.href = "homepage.html";
+    } catch (error) {
+        console.error("Error signing up:", error);
+        alert("Error: " + error.message);
     }
-    if (password.length < 6) {
-      signupMessage.textContent = "Password must be at least 6 characters.";
-      return;
-    }
+});
 
-    // Create User in Firebase
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        signupMessage.style.color = "green";
-        signupMessage.textContent = "Sign up successful! Redirecting...";
-        setTimeout(() => {
-          window.location.href = "login.html"; // Redirect to login page
-        }, 1500);
-      })
-      .catch((error) => {
-        signupMessage.style.color = "red";
-        signupMessage.textContent = error.message;
-      });
-  });
-}
-
-// ✅ LOGIN FUNCTION
-const loginForm = document.getElementById("login-form");
-if (loginForm) {
-  loginForm.addEventListener("submit", function (event) {
+// 🔹 Login Function
+document.getElementById("login-form")?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
-    const loginMessage = document.getElementById("login-message");
 
-    if (email === "" || password === "") {
-      loginMessage.textContent = "Please fill in all fields.";
-      return;
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log("User logged in:", userCredential.user.email);
+        alert("Login successful!");
+        window.location.href = "homepage.html";
+    } catch (error) {
+        console.error("Login error:", error);
+        alert("Error: " + error.message);
     }
+});
 
-    // Sign In User
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        loginMessage.style.color = "green";
-        loginMessage.textContent = "Login successful! Redirecting...";
-        setTimeout(() => {
-          window.location.href = "homepage.html"; // Redirect to homepage
-        }, 1500);
-      })
-      .catch((error) => {
-        loginMessage.style.color = "red";
-        loginMessage.textContent = "Invalid email or password.";
-      });
-  });
-}
-
-// ✅ LOGOUT FUNCTION
-const logoutBtn = document.getElementById("logout-btn");
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", function () {
-    signOut(auth)
-      .then(() => {
+// 🔹 Logout Function
+document.getElementById("logout-btn")?.addEventListener("click", async () => {
+    try {
+        await signOut(auth);
+        console.log("User logged out");
         alert("Logged out successfully!");
-        window.location.href = "login.html"; // Redirect to login
-      })
-      .catch((error) => {
-        alert("Error logging out: " + error.message);
-      });
-  });
-}
+        window.location.href = "homepage.html";
+    } catch (error) {
+        console.error("Logout error:", error);
+        alert("Error: " + error.message);
+    }
+});

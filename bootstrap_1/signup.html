@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="colors.css">
 </head>
 <body>
     <header>
-        <h1>SIGN IN TO DONATIONS</h1>
+        <h1>SIGN UP FOR DONATIONS</h1>
         <nav>
             <ul>
                 <li class="dropdown-btn">
                     <a href="javascript:void(0)">Account</a>
                     <div class="dropdown">
+                        <a href="homepage.html" id="homepage-link">Homepage</a>
                         <a href="login.html" id="login-link">Log In</a>
-                        <a href="signin.html" id="signin-link">Sign Up</a>
+                        <a href="signup.html" id="signin-link">Sign Up</a>
                     </div>
                 </li>
                 
@@ -24,9 +25,9 @@
     </header>
 
     <main>
-        <form id="signin-form">
+        <form id="signup-form">
             <fieldset>
-                <legend>Sign In:</legend>
+                <legend>Sign Up:</legend>
                 <label for="email">Email:</label>
                 <input type="email" id="email" required><br><br>
               
@@ -46,5 +47,9 @@
     </footer>
 
     <script src="somethingcool.js" defer></script>
+    <script type="module" src="firebaseConfig.js" defer></script>
+    <script src="login.js" defer></script>
+    <script src="signup.js" defer></script>
+
 </body>
 </html>
