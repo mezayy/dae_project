@@ -8,37 +8,48 @@
 </head>
 <body>
     <header>
-            <h1>LOG IN TO DONATIONS</h1>
-
+        <h1>LOG IN TO DONATIONS</h1>
         <nav>
             <ul>
                 <!-- Dropdown Menu -->
                 <li class="dropdown-btn">
                     <a href="javascript:void(0)">Account</a>
                     <div class="dropdown">
-                        <a href="homepage.html">Home</a>
-                        <a href="signin.html">Sign In</a>
-                        <a href="#contact">Contact</a>
-                        <a href="donate.html">Donate</a>
+                        <a href="homepage.html" id="homepage-link">Homepage</a>
+                        <a href="login.html" id="login-link">Log In</a>
+                        <a href="signup.html" id="signup-link">Sign Up</a>
                     </div>
                 </li>
+                
             </ul>
-        
+        </nav>
+        <button id="logout-btn" style="display: none;">Log Out</button> <!-- Logout Button -->
     </header>
+    
     <main>
-        <!-- <form action="/action_page.php"> -->
-        <form>
+        <form id="login-form">
             <fieldset>
+                <legend>Personal Information:</legend>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="submit">Log In</label>
-                <input type="submit" value="Submit">
+  <input type="email" id="email" required><br><br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" required><br><br>
+
+  <button type="submit">Login</button>
+  <p id="login-message"></p>
             </fieldset>
         </form>
     </main>
+    
     <footer>
         <p>Isaiah Sosa Capstone</p>
     </footer>
+    
     <script src="somethingcool.js" defer></script>
+    <script type="module" src="firebaseConfig.js" defer></script>
+    <script src="login.js" defer></script>
+    <script src="signup.js" defer></script>
+
 </body>
 </html>

@@ -109,14 +109,25 @@ nav ul li a:hover {
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.dropdown a {
+/* Dropdown item styling */
+.dropdown a, .dropdown-item {
     display: block;
     padding: 10px;
-    color: #17504a;
+    color: #17504a;  /* Match the dropdown text color */
+    font-family: 'NeutraText-Bold'; /* Match the font */
+    text-align: left;
+    text-decoration: none;
+    background-color: white; /* Background same as dropdown */
+    border: none;  /* Remove default button border */
+    width: 100%; /* Make it fill the dropdown width */
+    cursor: pointer;
 }
-.dropdown a:hover {
-    background-color: white;
+
+/* Hover effect */
+.dropdown a:hover, .dropdown-item:hover {
+    background-color: #f0f0f0; /* Slight gray hover effect */
 }
+
 .dropdown-btn:hover .dropdown {
     display: block;
 }
