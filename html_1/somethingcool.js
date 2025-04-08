@@ -1,29 +1,18 @@
-document.addEventListener("DOMContentLoaded"), function(){
+let imageIndex = 0;
+let imagesContainer;
+let images;
 
-};
+document.addEventListener("DOMContentLoaded", function () {
     // ✅ CAROUSEL FUNCTIONALITY
-    let imageIndex = 0;
-    const imagesContainer = document.querySelector('.carousel-images');
-    const images = document.querySelectorAll('.carousel-images img');
+    imagesContainer = document.querySelector('.carousel-images');
+    images = document.querySelectorAll('.carousel-images img');
+
     if (images.length > 0) {
-        let imageName = images[imageIndex].alt;
-        document.getElementById("image-name").innerText = "Current Image: " + imageName;
-
-        function scrollCarousel(direction) {
-            imageIndex += direction;
-            if (imageIndex < 0) imageIndex = images.length - 1;
-            if (imageIndex >= images.length) imageIndex = 0;
-
-            imagesContainer.style.transform = `translateX(-${imageIndex * images[0].clientWidth}px)`;
-            document.getElementById("image-name").innerText = "Current Image: " + images[imageIndex].alt;
-        }
-
-        window.addEventListener('resize', () => {
-            imagesContainer.style.transform = `translateX(-${imageIndex * images[0].clientWidth}px)`;
-        });
+        updateCarousel(); // Initial display
+        window.addEventListener('resize', updateCarousel);
     }
 
-    // ✅ DONATION FORM FUNCTIONALITY (Check if donation form exists)
+    // ✅ DONATION FORM FUNCTIONALITY
     const donationForm = document.getElementById("donationForm");
     const donationMessage = document.getElementById("donationMessage");
 
@@ -45,5 +34,29 @@ document.addEventListener("DOMContentLoaded"), function(){
             donationForm.reset();
         });
     }
-    
-    
+});
+
+// ✅ Needs to be global because your buttons use onclick
+function scrollCarousel(direction) {
+    if (!images || images.length === 0) return;
+
+    imageIndex += direction;
+
+    if (imageIndex < 0) imageIndex = images.length - 1;
+    if (imageIndex >= images.length) imageIndex = 0;
+
+    updateCarousel();
+}
+
+function updateCarousel() {
+    if (!imagesContainer || !images || images.length === 0) return;
+
+    const imageWidth = images[0].clientWidth;
+    imagesContainer.style.transform = `translateX(-${imageIndex * imageWidth}px)`;
+
+    // Update the image name if available
+    const imageNameElement = document.getElementById("image-name");
+    if (imageNameElement) {
+        imageNameElement.innerText = "Current Image: " + images[imageIndex].alt;
+    }
+}

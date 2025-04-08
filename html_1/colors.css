@@ -8,6 +8,7 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap; /* Prevents text from breaking */
+    font-family: 'NeutraText-Bold';
 }
 p {
     color: white; 
@@ -132,25 +133,46 @@ nav ul li a:hover {
     display: block;
 }
 
-/* Carousel container */
 .carousel {
     position: relative;
-    width: 80%;
-    margin: auto;
     overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
 }
 
-/* Images container */
 .carousel-images {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease;
+    width: max-content;
 }
 
-/* Individual image */
 .carousel-images img {
     width: 100%;
+    max-width: 600px;
     flex-shrink: 0;
 }
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
 
 /* Navigation buttons */
 .carousel-button {
@@ -163,14 +185,6 @@ nav ul li a:hover {
     cursor: pointer;
     padding: 10px;
     z-index: 10;
-}
-
-.carousel-button.left {
-    left: 10px;
-}
-
-.carousel-button.right {
-    right: 10px;
 }
 
 /* Hide buttons on small screens for a cleaner view */
