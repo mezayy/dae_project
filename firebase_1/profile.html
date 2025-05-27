@@ -3,52 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Elm City Compass Donations</title>
     <link rel="stylesheet" href="colors.css">
+
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <h1>LOG IN TO DONATIONS</h1>
+        <div><p>ACCOUNT</p> </div>
+        <h1>ELM CITY COMPASS DONATIONS</h1>
         <nav>
             <ul>
                 <!-- Dropdown Menu -->
                 <li class="dropdown-btn">
                     <a href="javascript:void(0)">Account</a>
                     <div class="dropdown">
-                        <a href="homepage.html" id="homepage-link">Homepage</a>
                         <a href="login.html" id="login-link">Log In</a>
                         <a href="signup.html" id="signup-link">Sign Up</a>
                         <a href="profile.html" id="profile-link">Profile</a>
+                        <button id="logout-btn" class="dropdown-item">Logout</button>
                     </div>
                 </li>
                 
             </ul>
         </nav>
-    <button id="logout-btn" style="display: none;">Log Out</button> <!-- Logout Button -->
     </header>
-    
-    <main>
-        <form id="login-form">
-            <fieldset>
-                <legend>Personal Information:</legend>
-                <label for="email">Email:</label>
-                 <input type="email" id="email" required><br><br>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" required><br><br>
+    <button id="read-btn">Read Data</button>
+<button id="update-btn">Update Name</button>
+<button id="delete-btn">Delete User</button>
 
-        <button type="submit">Login</button>
-  <p id="login-message"></p>
-            </fieldset>
-        </form>
-    </main>
-    
+
     <footer>
         <p>Isaiah Sosa Capstone</p>
     </footer>
-    
     <script src="somethingcool.js" defer></script>
     <script type="module" src="firebaseConfig.js" defer></script>
-
 </body>
 </html>
