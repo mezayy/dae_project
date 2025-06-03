@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elm City Compass - Auth</title>
+  <link rel="stylesheet" href="colors.css" />
+</head>
+<body>
+  <header>
+    <h1>ACCOUNT ACCESS</h1>
+    <nav>
+      <ul>
+        <li class="dropdown-btn">
+          <a href="javascript:void(0)">Account</a>
+          <div class="dropdown">
+            <a href="homepage.html">Homepage</a>
+            <a href="auth.html">Log In / Sign Up</a>
+            <a href="profile.html">Profile</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form id="auth-form">
+      <fieldset>
+        <legend id="form-title">Log In</legend>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required /><br /><br />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required /><br /><br />
+
+        <button type="submit" id="auth-button">Log In</button>
+        <p id="auth-message" style="color: red;"></p>
+
+        <!-- ✅ Fix: ONE toggle button outside of <p> mess -->
+        <button id="toggle-auth" type="button">Don't have an account? Sign Up</button>
+      </fieldset>
+    </form>
+
+    <button id="logout-btn" style="display: none;">Log Out</button>
+  </main>
+
+  <footer>
+    <p>Isaiah Sosa Capstone</p>
+  </footer>
+
+  <script type="module" src="firebaseConfig.js"></script>
+  <script type="module">
+    import { auth } from './firebaseConfig.js';
+    import {
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      signOut,
+      onAuthStateChanged,
+    } from 'https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js';
+
+    const form = document.getElementById('auth-form');
+    const toggleLink = document.getElementById('toggle-auth');
+    const formTitle = document.getElementById('form-title');
+    const authButton = document.getElementById('auth-button');
+    const authMessage = document.getElementById('auth-message');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    let isLogin = true;
+
+    // ✅ Toggle between Login and Sign Up
+    toggleLink.addEventListener('click', () => {
+      isLogin = !isLogin;
+      formTitle.textContent = isLogin ? 'Log In' : 'Sign Up';
+      authButton.textContent = isLogin ? 'Log In' : 'Sign Up';
+      toggleLink.textContent = isLogin
+        ? "Don't have an account? Sign Up"
+        : "Already have an account? Log In";
+      authMessage.textContent = '';
+    });
+
+    // ✅ Submit handler with redirect
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        if (isLogin) {
+          await signInWithEmailAndPassword(auth, email, password);
+        } else {
+          await createUserWithEmailAndPassword(auth, email, password);
+        }
+        window.location.href = "homepage.html"; // ✅ Redirect if successful
+      } catch (error) {
+        console.error(error); // ✅ Debug in console
+        authMessage.textContent = error.message;
+        authMessage.style.color = 'red';
+      }
+    });
+
+    // ✅ Logout Button Handling
+    logoutBtn.addEventListener('click', async () => {
+      await signOut(auth);
+      window.location.href = "auth.html";
+    });
+
+    // ✅ Show/hide logout button based on auth state
+    onAuthStateChanged(auth, (user) => {
+      logoutBtn.style.display = user ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
